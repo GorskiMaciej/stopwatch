@@ -84,24 +84,52 @@ class Display {
             timeDisplayDiv.textContent = `00:00`;
             flag = true;
         }
-        this.getTimeToDisplay = () => _timeToDisplay;
+        this.getTime = () => _timeToDisplay;
         this.getTotalTime = () => _totalTimeToDisplay;
         this.getFlag = () => flag;
     }
 }
+class ListElement {
+    constructor(number, lapTime, totalTime) {
+        this.number = number;
+        this.lapTime = lapTime;
+        this.totalTime = totalTime;
+    }
+}
+
 class List {
-    constructor() {
-        const _lapList = ["czas01", "czas02", "czas03"];
+    constructor(lapTime, totalTime) {
+        const _lapList = [];
         const ul = document.querySelector("[data-function='lapList']")
         let _addingIndex = 0;
 
         this.addlapToList = () => {
-            _lapList.push("coś");
+            const lap = new ListElement(lapTime, totalTime);
+            _lapList.push(lap);
         }
 
         this.renderLapList = () => {
-            // _lapList.
+            ul.textContent = "";
+            _lapList.forEach((element, index) => {
+                const li = document.createElement("li");
+                const divNumber = document.createElement("div");
+                divNumber.textContent = `Nr ${_addingIndex+1}`
+                divNumber.className = "scoresList-li scoresList-li--number";
+                const divLapTime = document.createElement("div");
+                divLapTime.textContent = `${lapTime}`
+                const divTotalTime = document.createElement("div");
+                divTotalTime.textContent = `${totalTime}`
+                li.textContent = `N: ${index+1} ${element}`;
+                ul.appendChild(li);
+                li.appendChild(divNumber);
+                li.appendChild(divLapTime);
+                li.appendChild(divTotalTime);
+            })
         }
+        this.resetList = () => {
+            ul.textContent = "";
+            _lapList.splice(0, _lapList.length);
+        };
     }
 
 }
@@ -114,22 +142,19 @@ class Panel {
         const btnReset = document.querySelector("[data-function='reset']")
         const btnStart = document.querySelector("[data-function='start']")
         const btnLap = document.querySelector("[data-function='lap']")
-
-        this.resetList = () => {
-
-        }
         btnReset.addEventListener('click', () => {
             display.resetTime();
+            list.resetList();
         })
         btnStart.addEventListener('click', () => {
             display.startPauseTime();
-            console.log(display.getFlag());
         })
         btnLap.addEventListener('click', () => {
             display.lap();
-            console.log("time:" + display.getTimeToDisplay());
+            console.log("time:" + display.getTime());
             console.log("total time:" + display.getTotalTime());
             list.addlapToList();
+            list.renderLapList();
         })
     }
 }
