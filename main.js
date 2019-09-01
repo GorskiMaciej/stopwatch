@@ -10,7 +10,7 @@ class Display {
         let _totalTimeIntervalIndex = 0;
         let _timeToDisplay = "";
         let _totalTimeToDisplay = "";
-        this.getTime = () => _time;
+
         this.timeConverter = (time) => {
             let _centiSeconds = 0
             let _seconds = 0;
@@ -43,6 +43,7 @@ class Display {
             }
             return timeToDisplay;
         }
+
         this.startPauseTime = () => {
             if (flag) {
 
@@ -77,6 +78,7 @@ class Display {
                 }, 10);
             }
         }
+
         this.resetTime = () => {
             _time = 0;
             clearInterval(_intervalIndex);
@@ -84,42 +86,40 @@ class Display {
             timeDisplayDiv.textContent = `00:00`;
             flag = true;
         }
+
         this.getTime = () => _timeToDisplay;
         this.getTotalTime = () => _totalTimeToDisplay;
         this.getFlag = () => flag;
     }
 }
 class ListElement {
-    constructor(number, lapTime, totalTime) {
-        this.number = number;
+    constructor(lapTime, totalTime) {
         this.lapTime = lapTime;
         this.totalTime = totalTime;
     }
 }
 
 class List {
-    constructor(lapTime, totalTime) {
+    constructor() {
         const _lapList = [];
         const ul = document.querySelector("[data-function='lapList']")
-        let _addingIndex = 0;
 
-        this.addlapToList = () => {
+        this.addlapToList = (lapTime, totalTime) => {
             const lap = new ListElement(lapTime, totalTime);
             _lapList.push(lap);
         }
 
-        this.renderLapList = () => {
+        this.renderLapList = (lapList) => {
             ul.textContent = "";
-            _lapList.forEach((element, index) => {
+            lapList.forEach((element, index) => {
                 const li = document.createElement("li");
                 const divNumber = document.createElement("div");
-                divNumber.textContent = `Nr ${_addingIndex+1}`
+                divNumber.textContent = `Nr ${index+1}`
                 divNumber.className = "scoresList-li scoresList-li--number";
                 const divLapTime = document.createElement("div");
-                divLapTime.textContent = `${lapTime}`
+                divLapTime.textContent = `lapTime: ${element.lapTime}`
                 const divTotalTime = document.createElement("div");
-                divTotalTime.textContent = `${totalTime}`
-                li.textContent = `N: ${index+1} ${element}`;
+                divTotalTime.textContent = `totalTime: ${element.totalTime}`
                 ul.appendChild(li);
                 li.appendChild(divNumber);
                 li.appendChild(divLapTime);
@@ -130,12 +130,14 @@ class List {
             ul.textContent = "";
             _lapList.splice(0, _lapList.length);
         };
+        this.getList = () => _lapList;
     }
 
 }
 
-const list = new List();
+
 const timeDisplay = new Display(timeDisplayDiv);
+const list = new List();
 
 class Panel {
     constructor(list, display) {
@@ -151,10 +153,13 @@ class Panel {
         })
         btnLap.addEventListener('click', () => {
             display.lap();
-            console.log("time:" + display.getTime());
-            console.log("total time:" + display.getTotalTime());
-            list.addlapToList();
-            list.renderLapList();
+            // console.log("time:" + display.getTime());
+            // console.log("total time:" + display.getTotalTime());
+            if (!display.getFlag()) {
+                list.addlapToList(display.getTime(), display.getTotalTime());
+            }
+            list.renderLapList(list.getList());
+            // console.log(list.getList());
         })
     }
 }
