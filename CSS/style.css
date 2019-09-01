@@ -1,15 +1,78 @@
 body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: #1a1a1a; }
   body .wrapper {
-    margin: 20px auto;
-    padding: 10px;
-    max-width: 640px;
-    background-color: #555; }
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 500px;
+    height: 100%; }
+
+.panel {
+  position: absolute;
+  bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: calc(100% - 60px); }
+  .panel .panel__btn {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    color: #eee;
+    background-color: #1a1a1a;
+    border: 1px solid #0FBF9F;
+    -webkit-box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
+            box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
+    border-radius: 50%;
+    font-family: 'Manjari', sans-serif;
+    text-align: center;
+    text-decoration: none; }
 
 .time {
-  margin: 20px 0;
+  position: absolute;
+  bottom: 130px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 30px;
+  width: calc(100% - 60px);
+  height: 70px;
+  border: 1px solid #0FBF9F;
+  -webkit-box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
+          box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
+  border-radius: 50px;
+  text-align: center; }
+  .time .time__span {
+    color: #eee;
+    font-family: 'Manjari', sans-serif;
+    font-size: 30px; }
+
+.scoresList .scoresList__ul {
   width: 100%;
-  border: 2px solid #0FBF9F; }
-  .time .time-span {
-    margin: 0; }
+  padding-left: 0; }
+  .scoresList .scoresList__ul .scoresList__li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    list-style: none; }
+    .scoresList .scoresList__ul .scoresList__li .scoresList__div {
+      color: #eee;
+      font-family: 'Manjari', sans-serif;
+      text-align: right; }
+
+.scoresList .scoresList__div--number {
+  width: 30px;
+  text-align: left; }
 /*# sourceMappingURL=style.css.map */

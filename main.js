@@ -113,13 +113,22 @@ class List {
             ul.textContent = "";
             lapList.forEach((element, index) => {
                 const li = document.createElement("li");
+                li.className = "scoresList__li"
+
                 const divNumber = document.createElement("div");
-                divNumber.textContent = `Nr ${index+1}`
-                divNumber.className = "scoresList-li scoresList-li--number";
+                divNumber.textContent = `${index+1}.`
+                divNumber.className = "scoresList__div  scoresList__div--number";
+
                 const divLapTime = document.createElement("div");
-                divLapTime.textContent = `lapTime: ${element.lapTime}`
+                divLapTime.textContent = `${element.lapTime}`
+                divLapTime.className = "scoresList__div";
+
+
                 const divTotalTime = document.createElement("div");
-                divTotalTime.textContent = `totalTime: ${element.totalTime}`
+                divTotalTime.textContent = `${element.totalTime}`
+                divTotalTime.className = "scoresList__div";
+
+
                 ul.appendChild(li);
                 li.appendChild(divNumber);
                 li.appendChild(divLapTime);

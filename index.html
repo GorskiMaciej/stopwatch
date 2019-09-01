@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stopwatch</title>
+    <link href="https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS\style.css">
+    <script src="https://kit.fontawesome.com/d7f104decb.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="scoresList">
-            <ul data-function="lapList" class="scoresList-ul"></ul>
+            <ul data-function="lapList" class="scoresList__ul">
+            </ul>
         </div>
         <div class="time">
-            <span data-function="timeDisplay" class="time-span">czas</span>
+            <span data-function="timeDisplay" class="time__span">czas</span>
         </div>
         <div class="panel">
-            <button data-function="reset" class="panel-btn">Reset</button>
-            <button data-function="start" class="panel-btn panel-btn--start"></button>
-            <button data-function="lap" class="panel-btn">+ Lap</button>
+            <button data-function="reset" class="panel__btn">Reset</button>
+            <button data-function="start" class="panel__btn panel__btn--start"><i
+                    class="fas fa-play fa-2x"></i></button>
+            <button data-function="lap" class="panel__btn">Lap</button>
         </div>
     </div>
     <script src="main.js"></script>
