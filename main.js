@@ -106,7 +106,7 @@ class List {
 
         this.addlapToList = (lapTime, totalTime) => {
             const lap = new ListElement(lapTime, totalTime);
-            _lapList.push(lap);
+            _lapList.unshift(lap);
         }
 
         this.renderLapList = (lapList) => {
@@ -116,7 +116,7 @@ class List {
                 li.className = "scoresList__li"
 
                 const divNumber = document.createElement("div");
-                divNumber.textContent = `${index+1}.`
+                divNumber.textContent = `${lapList.length - index}.`
                 divNumber.className = "scoresList__div  scoresList__div--number";
 
                 const divLapTime = document.createElement("div");
