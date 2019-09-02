@@ -1,8 +1,10 @@
 body {
   margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #1a1a1a; }
+  background-image: radial-gradient(circle, #1f1f1f, #1a1a1a);
+  background-attachment: fixed; }
   body .wrapper {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -13,7 +15,7 @@ body {
     height: 100%; }
 
 .panel {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,36 +28,42 @@ body {
     display: inline-block;
     width: 70px;
     height: 70px;
-    color: #eee;
+    color: #ccc;
     background-color: #1a1a1a;
     border: 1px solid #0FBF9F;
-    -webkit-box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
-            box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
+    -webkit-box-shadow: inset 0 0 0 2px #101010, inset 0 0 0 4px #0FBF9F;
+            box-shadow: inset 0 0 0 2px #101010, inset 0 0 0 4px #0FBF9F;
     border-radius: 50%;
     font-family: 'Manjari', sans-serif;
     text-align: center;
     text-decoration: none; }
 
 .time {
-  position: absolute;
+  position: fixed;
   bottom: 130px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
-  padding: 30px;
   width: calc(100% - 60px);
   height: 70px;
+  background-color: #1a1a1ae0;
   border: 1px solid #0FBF9F;
   -webkit-box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
           box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F;
   border-radius: 50px;
   text-align: center; }
   .time .time__span {
-    color: #eee;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    line-height: 70px;
+    color: #ccc;
     font-family: 'Manjari', sans-serif;
     font-size: 30px; }
 
 .scoresList .scoresList__ul {
+  margin-bottom: 230px;
   width: 100%;
   padding-left: 0; }
   .scoresList .scoresList__ul .scoresList__li {
@@ -68,11 +76,11 @@ body {
     width: 100%;
     list-style: none; }
     .scoresList .scoresList__ul .scoresList__li .scoresList__div {
-      color: #eee;
+      color: #999;
       font-family: 'Manjari', sans-serif;
       text-align: right; }
 
-.scoresList .scoresList__div--number {
+.scoresList .scoresList__li .scoresList__div .scoresList__div--number {
   width: 30px;
   text-align: left; }
 /*# sourceMappingURL=style.css.map */

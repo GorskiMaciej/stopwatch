@@ -1,18 +1,21 @@
 .time
-    position: absolute
+    position: fixed
     bottom: 130px
     box-sizing: border-box
     margin: 0
-    padding: 30px
     width: calc(100% - 60px)
     height: 70px
-    // background-image: linear-gradient(#0000, #1a1a1a)
+    background-color: #1a1a1ae0
     border: 1px solid #0FBF9F
     box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F
     border-radius: 50px
     text-align: center
     .time__span
-        color: #eee
+        position: absolute
+        top: 50%
+        transform: translate(-50%,  -50%)
+        line-height: 70px
+        color: #ccc
         font-family: 'Manjari', sans-serif
         font-size: 30px
         
