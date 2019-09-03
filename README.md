@@ -5,3 +5,5 @@ In this program I would like to practice OOP, BEM and SASS or SCSS in use with J
 
 Program should be able to start,stop, pause and reset counting time. 
 Additionally it should add scores to list and reset this list with button.
+
+You can check project here: https://gorskimaciej.github.io/stopwatch/
