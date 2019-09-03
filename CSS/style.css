@@ -23,7 +23,8 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: calc(100% - 60px); }
+  width: calc(100% - 60px);
+  max-width: calc(500px - 60px); }
   .panel .panel__btn {
     display: inline-block;
     width: 70px;
@@ -45,6 +46,7 @@ body {
           box-sizing: border-box;
   margin: 0;
   width: calc(100% - 60px);
+  max-width: calc(500px - 60px);
   height: 70px;
   background-color: #1a1a1ae0;
   border: 1px solid #0FBF9F;
