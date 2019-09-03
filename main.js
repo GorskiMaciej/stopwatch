@@ -123,11 +123,9 @@ class List {
                 divLapTime.textContent = `${element.lapTime}`
                 divLapTime.className = "scoresList__div";
 
-
                 const divTotalTime = document.createElement("div");
                 divTotalTime.textContent = `${element.totalTime}`
                 divTotalTime.className = "scoresList__div";
-
 
                 ul.appendChild(li);
                 li.appendChild(divNumber);
@@ -143,7 +141,6 @@ class List {
     }
 
 }
-
 
 const timeDisplay = new Display(timeDisplayDiv);
 const list = new List();
@@ -162,16 +159,12 @@ class Panel {
         })
         btnLap.addEventListener('click', () => {
             display.lap();
-            // console.log("time:" + display.getTime());
-            // console.log("total time:" + display.getTotalTime());
             if (!display.getFlag()) {
                 list.addlapToList(display.getTime(), display.getTotalTime());
             }
             list.renderLapList(list.getList());
-            // console.log(list.getList());
         })
     }
 }
-
 
 const panel = new Panel(list, timeDisplay);
