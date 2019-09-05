@@ -1,5 +1,5 @@
 const timeDisplayDiv = document.querySelector("[data-function='timeDisplay']")
-timeDisplayDiv.textContent = "00:00";
+timeDisplayDiv.textContent = "00.00";
 
 class Display {
     constructor(timeDisplayDiv) {
@@ -35,11 +35,11 @@ class Display {
                 _hours = `0${_hours}`
             };
             if (_hours > 0) {
-                timeToDisplay = `${_hours}:${_minutes}:${_seconds}:${_centiSeconds}`;
+                timeToDisplay = `${_hours}:${_minutes}:${_seconds}.${_centiSeconds}`;
             } else if (_minutes > 0) {
-                timeToDisplay = `${_minutes}:${_seconds}:${_centiSeconds}`;
+                timeToDisplay = `${_minutes}:${_seconds}.${_centiSeconds}`;
             } else {
-                timeToDisplay = `${_seconds}:${_centiSeconds}`;
+                timeToDisplay = `${_seconds}.${_centiSeconds}`;
             }
             return timeToDisplay;
         }
@@ -70,7 +70,7 @@ class Display {
             if (!flag) {
                 _time = 0;
                 clearInterval(_intervalIndex);
-                timeDisplayDiv.textContent = `00:00`;
+                timeDisplayDiv.textContent = `00.00`;
                 _intervalIndex = setInterval(() => {
                     _time++;
                     _timeToDisplay = this.timeConverter(_time);
@@ -83,7 +83,7 @@ class Display {
             _time = 0;
             clearInterval(_intervalIndex);
             clearInterval(_totalTimeIntervalIndex);
-            timeDisplayDiv.textContent = `00:00`;
+            timeDisplayDiv.textContent = `00.00`;
             flag = true;
         }
 
