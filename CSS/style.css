@@ -86,6 +86,9 @@ body {
       font-family: 'Manjari', sans-serif;
       text-align: right; }
 
+.scoresList .scoresList__ul .scoresList__li:nth-of-type(1) .scoresList__div {
+  color: #fff; }
+
 .scoresList .scoresList__li .scoresList__div .scoresList__div--number {
   width: 30px;
   text-align: left; }

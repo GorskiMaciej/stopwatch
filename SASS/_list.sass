@@ -10,11 +10,17 @@
             justify-content: space-between
             width: 100%
             list-style: none
-
             .scoresList__div
                 color: $textScoreList
                 font-family: 'Manjari', sans-serif
                 text-align: right
+
+.scoresList
+    .scoresList__ul
+        .scoresList__li
+            &:nth-of-type(1)
+                .scoresList__div
+                    color: $textHighlighted
 
 .scoresList
     .scoresList__li
