@@ -152,9 +152,13 @@ class Panel {
 
         this.changeStartStopIcon = (flag) => {
             if (flag) {
+                btnStart.classList.remove('panel__btn--start')
+                btnStart.classList.add('panel__btn--pause')
                 btnStart.querySelector('i').classList.remove('fa-play')
                 btnStart.querySelector('i').classList.add('fa-pause')
             } else {
+                btnStart.classList.remove('panel__btn--pause')
+                btnStart.classList.add('panel__btn--start')
                 btnStart.querySelector('i').classList.remove('fa-pause')
                 btnStart.querySelector('i').classList.add('fa-play')
             }

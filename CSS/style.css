@@ -37,7 +37,16 @@ body {
     border-radius: 50%;
     font-family: 'Manjari', sans-serif;
     text-align: center;
-    text-decoration: none; }
+    text-decoration: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s; }
+    .panel .panel__btn:hover {
+      color: #1a1a1a;
+      background-color: #0FBF9F; }
+
+.panel .panel__btn--pause {
+  color: #1a1a1a;
+  background-color: #0FBF9F; }
 
 .time {
   position: fixed;
