@@ -6,9 +6,9 @@
     width: calc(100% - 60px)
     max-width: calc(500px - 60px)
     height: 70px
-    background-color: #1a1a1ae0
-    border: 1px solid #0FBF9F
-    box-shadow: inset 0 0 0 2px #1a1a1a, inset 0 0 0 4px #0FBF9F
+    background-color: $bgcColorDarkTransparent
+    border: 1px solid $mainColor
+    +doubleBorders($bgcColorDark,$mainColor) 
     border-radius: 50px
     text-align: center
     .time__span
@@ -16,7 +16,7 @@
         top: 50%
         transform: translate(-50%,  -50%)
         line-height: 70px
-        color: #ccc
+        color: $text
         font-family: 'Manjari', sans-serif
         font-size: 30px
         

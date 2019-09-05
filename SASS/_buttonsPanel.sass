@@ -9,10 +9,10 @@
         display: inline-block
         width: 70px
         height: 70px
-        color: #ccc
-        background-color: #1a1a1a
-        border: 1px solid #0FBF9F        
-        box-shadow: inset 0 0 0 2px #101010, inset 0 0 0 4px #0FBF9F
+        color: $text
+        background-color: $bgcColorDarkTransparent
+        border: 1px solid $mainColor    
+        +doubleBorders($bgcColorDark,$mainColor) 
         border-radius: 50%
         font-family: 'Manjari', sans-serif
         text-align: center
@@ -24,7 +24,7 @@
 
 .panel
      .panel__btn--pause
-         color: #1a1a1a
-         background-color: #0FBF9F 
+         color: $bgcColorDark
+         background-color: $mainColor
 
 
