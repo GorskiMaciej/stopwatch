@@ -139,7 +139,6 @@ class List {
         };
         this.getList = () => _lapList;
     }
-
 }
 
 const timeDisplay = new Display(timeDisplayDiv);
@@ -150,12 +149,24 @@ class Panel {
         const btnReset = document.querySelector("[data-function='reset']")
         const btnStart = document.querySelector("[data-function='start']")
         const btnLap = document.querySelector("[data-function='lap']")
+
+        this.changeStartStopIcon = (flag) => {
+            if (flag) {
+                btnStart.querySelector('i').classList.remove('fa-play')
+                btnStart.querySelector('i').classList.add('fa-pause')
+            } else {
+                btnStart.querySelector('i').classList.remove('fa-pause')
+                btnStart.querySelector('i').classList.add('fa-play')
+            }
+        }
+
         btnReset.addEventListener('click', () => {
             display.resetTime();
             list.resetList();
         })
         btnStart.addEventListener('click', () => {
             display.startPauseTime();
+            this.changeStartStopIcon(!display.getFlag());
         })
         btnLap.addEventListener('click', () => {
             display.lap();
@@ -164,6 +175,8 @@ class Panel {
             }
             list.renderLapList(list.getList());
         })
+
+
     }
 }
 
