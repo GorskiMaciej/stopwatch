@@ -167,6 +167,7 @@ class Panel {
         btnReset.addEventListener('click', () => {
             display.resetTime();
             list.resetList();
+            this.changeStartStopIcon(!display.getFlag());
         })
         btnStart.addEventListener('click', () => {
             display.startPauseTime();
